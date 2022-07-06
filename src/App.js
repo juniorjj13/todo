@@ -7,6 +7,9 @@ import Card from "./components/Card.js";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import ToDoForm from "./components/ToDoForm";
+{
+  // import ToDoCounter from "./components/ToDoCounter";
+}
 
 function App() {
   const [toDoList, setToDoList] = useState(data);
@@ -27,6 +30,13 @@ function App() {
     setToDoList(filtered);
   };
 
+  const handleFiltered = () => {
+    let filtered = toDoList.filter((task) => {
+      return task.complete;
+    });
+    setToDoList(filtered);
+  };
+
   const addTask = (userInput) => {
     let copy = [...toDoList];
     copy = [
@@ -36,18 +46,42 @@ function App() {
     setToDoList(copy);
   };
 
+  //counter (add .length )
+
+  const taskCounter = () => {
+    let taskComplete = toDoList.filter((task) => {
+      return task.complete;
+    });
+    setToDoList(taskComplete);
+  };
+
+  const length = () => {
+    let taskComplete = toDoList;
+    taskComplete.filter((task) => {
+      let tasksCompleted = task.complete;
+      return tasksCompleted.length;
+    });
+  };
+
+  const tasks = toDoList.length;
+
   return (
     <div className="App">
       <Header />
       <div className="container">
         <Card />
       </div>
+      {/* {<ToDoCounter taskCounter={taskCounter} />} */}
       <ToDoList
         toDoList={toDoList}
         handleToggle={handleToggle}
         handleFilter={handleFilter}
+        handleFiltered={handleFiltered}
       />
       <ToDoForm addTask={addTask} />
+      <div>
+        <p>You have {tasks} tasks for the day.</p>
+      </div>
     </div>
   );
 }
