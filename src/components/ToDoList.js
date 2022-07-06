@@ -7,6 +7,7 @@ const ToDoList = ({ toDoList, handleToggle, handleFilter, handleFiltered }) => {
       {toDoList.map((todo) => {
         return (
           <ToDo
+            key={todo.id} // will be unique forever
             todo={todo}
             handleToggle={handleToggle}
             handleFilter={handleFilter}

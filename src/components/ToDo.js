@@ -1,22 +1,20 @@
 import React from "react";
+import classNames from "classnames";
 
 const ToDo = ({ todo, handleToggle }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    handleToggle(e.currentTarget.id);
+    handleToggle(todo.id);
   };
 
+  // styled-components
   return (
-    <div
-      id={todo.id}
-      key={todo.id + todo.task}
-      name="todo"
-      value={todo.id}
+    <button
       onClick={handleClick}
-      className={todo.complete ? "todo strike" : "todo"}
+      className={classNames("todo", { strike: todo.complete })}
     >
       {todo.task}
-    </div>
+    </button>
   );
 };
 
