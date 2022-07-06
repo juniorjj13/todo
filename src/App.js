@@ -1,86 +1,96 @@
 import "./App.css";
 import data from "./data.json";
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 // components
 import Card from "./components/Card.js";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import ToDoForm from "./components/ToDoForm";
-{
-  // import ToDoCounter from "./components/ToDoCounter";
-}
 
 function App() {
   const [toDoList, setToDoList] = useState(data);
+  const [view, setView] = useState("all");
 
   const handleToggle = (id) => {
-    let mapped = toDoList.map((task) => {
-      return task.id === Number(id)
-        ? { ...task, complete: !task.complete }
-        : { ...task };
-    });
+    let mapped = toDoList.map((task) => ({
+      ...task,
+      complete: task.id === id ? !task.complete : task.complete,
+    }));
     setToDoList(mapped);
   };
 
+  const notCompletedToDos = useMemo(
+    () =>
+      toDoList.filter((task) => {
+        return !task.complete;
+      }),
+    [toDoList]
+  );
+
+  const completedToDos = useMemo(
+    () =>
+      toDoList.filter((task) => {
+        return task.complete;
+      }),
+    [toDoList]
+  );
+
+  const treatedToDos = useMemo(() => {
+    let list = [];
+    switch (view) {
+      case "completed":
+        list = completedToDos;
+        break;
+      case "incomplete":
+        list = notCompletedToDos;
+        break;
+      default:
+        list = toDoList;
+    }
+    return list;
+  }, [toDoList, view, completedToDos, notCompletedToDos]);
+  // useMemo -> retorna variaveis
+  // useCallback -> retorna funcoes
+
   const handleFilter = () => {
-    let filtered = toDoList.filter((task) => {
-      return !task.complete;
-    });
-    setToDoList(filtered);
+    setView("incomplete");
   };
 
   const handleFiltered = () => {
-    let filtered = toDoList.filter((task) => {
-      return task.complete;
-    });
-    setToDoList(filtered);
+    setView("completed");
   };
 
   const addTask = (userInput) => {
-    let copy = [...toDoList];
-    copy = [
-      ...copy,
-      { id: toDoList.length + 1, task: userInput, complete: false },
+    const copy = [
+      ...toDoList,
+      { id: uuidv4(), task: userInput, complete: false },
     ];
     setToDoList(copy);
   };
 
   //counter (add .length )
 
-  const taskCounter = () => {
-    let taskComplete = toDoList.filter((task) => {
-      return task.complete;
-    });
-    setToDoList(taskComplete);
-  };
-
-  const length = () => {
-    let taskComplete = toDoList;
-    taskComplete.filter((task) => {
-      let tasksCompleted = task.complete;
-      return tasksCompleted.length;
-    });
-  };
-
-  const tasks = toDoList.length;
-
   return (
     <div className="App">
       <Header />
       <div className="container">
         <Card />
+        <p>
+          Done tasks {completedToDos.length} of {toDoList.length}
+        </p>
       </div>
       {/* {<ToDoCounter taskCounter={taskCounter} />} */}
       <ToDoList
-        toDoList={toDoList}
+        toDoList={treatedToDos}
         handleToggle={handleToggle}
         handleFilter={handleFilter}
         handleFiltered={handleFiltered}
       />
       <ToDoForm addTask={addTask} />
       <div>
-        <p>You have {tasks} tasks for the day.</p>
+        <p>You have {treatedToDos.length} tasks for the day.</p>
       </div>
     </div>
   );
