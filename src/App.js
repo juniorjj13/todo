@@ -62,6 +62,10 @@ function App() {
     setView("completed");
   };
 
+  const handleAllFiltered = () => {
+    setView();
+  };
+
   const addTask = (userInput) => {
     const copy = [
       ...toDoList,
@@ -87,6 +91,7 @@ function App() {
         handleToggle={handleToggle}
         handleFilter={handleFilter}
         handleFiltered={handleFiltered}
+        handleAllFiltered={handleAllFiltered}
       />
       <ToDoForm addTask={addTask} />
       <div>
