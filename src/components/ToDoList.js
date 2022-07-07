@@ -22,13 +22,13 @@ const ToDoList = ({
           />
         );
       })}
-      <button style={{ margin: "20px" }} onClick={handleFilter}>
+      <button className="btnToDo btnClear" onClick={handleFilter}>
         Clear Completed
       </button>
-      <button style={{ margin: "20px" }} onClick={handleFiltered}>
+      <button className="btnToDo btnCompleted" onClick={handleFiltered}>
         Display completed tasks
       </button>
-      <button style={{ margin: "20px" }} onClick={handleAllFiltered}>
+      <button className="btnToDo btnAll" onClick={handleAllFiltered}>
         Display All tasks
       </button>
     </div>
