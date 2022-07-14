@@ -1,6 +1,9 @@
 body {
   text-align: center;
   justify-content: center;
+  /* background-color: rgba(67, 105, 115, 0.519); */
+  background-color: rgba(132, 220, 244, 0.519);
+
 }
 
 .title {
@@ -12,15 +15,36 @@ body {
   justify-content: center;
 }
 
-.card {
+/* .card {
   display: flex;
   justify-content: space-between;
   border: solid 1px;
   width: 50%;
-}
+} */
 
 .text {
   width: 10;
+}
+
+.createdTasks {
+  margin-right: 50px;
+}
+
+/* tasks buttons todo */
+
+.todo {
+  display: block;
+  margin: 5px auto;
+  background: rgba( 205, 225, 234, 0.2 );
+  box-shadow: 0 8px 32px 0 rgba(131, 132, 145, 0.37);
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.todo.strike {
+  text-decoration: line-through;
 }
 
 /* buttons  */
@@ -55,3 +79,16 @@ body {
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.3s ease 0s;
   }
+
+  /* pomodoro timer */
+
+  .pomodoro {
+    font-size: 6em;
+  }
+  
+  .message {
+    font-size: 0.5em;
+    min-height: 1.3em;
+    margin-bottom: 0.5em;
+  }
+  

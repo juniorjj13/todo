@@ -14,11 +14,4 @@ code {
 
 
 
-.todo {
-  display: block;
-  margin: 5px auto;
-}
 
-.todo.strike {
-  text-decoration: line-through;
-}

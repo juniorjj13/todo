@@ -8,6 +8,7 @@ import Card from "./components/Card.js";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import ToDoForm from "./components/ToDoForm";
+import Pomodoro from "./components/Pomodoro";
 
 function App() {
   const [toDoList, setToDoList] = useState(data);
@@ -80,12 +81,13 @@ function App() {
     <div className="App">
       <Header />
       <div className="container">
-        <Card />
+        {/* <Card /> */}
+        <p className="createdTasks">Created tasks: {treatedToDos.length}</p>
         <p>
           Done tasks {completedToDos.length} of {toDoList.length}
         </p>
       </div>
-      {/* {<ToDoCounter taskCounter={taskCounter} />} */}
+      <Pomodoro />
       <ToDoList
         toDoList={treatedToDos}
         handleToggle={handleToggle}
@@ -94,9 +96,6 @@ function App() {
         handleAllFiltered={handleAllFiltered}
       />
       <ToDoForm addTask={addTask} />
-      <div>
-        <p>You have {treatedToDos.length} tasks for the day.</p>
-      </div>
     </div>
   );
 }
