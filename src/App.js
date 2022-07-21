@@ -4,7 +4,6 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // components
-import Card from "./components/Card.js";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import ToDoForm from "./components/ToDoForm";
@@ -74,8 +73,6 @@ function App() {
     ];
     setToDoList(copy);
   };
-
-  //counter (add .length )
 
   return (
     <div className="App">
