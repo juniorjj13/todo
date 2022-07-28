@@ -1,5 +1,6 @@
 import React from "react";
 import ToDo from "./ToDo";
+import Delete from "./Delete";
 
 const ToDoList = ({
   toDoList,
@@ -7,19 +8,27 @@ const ToDoList = ({
   handleFilter,
   handleFiltered,
   handleAllFiltered,
+  setToDoList,
 }) => {
   return (
     <div>
       {toDoList.map((todo) => {
         return (
-          <ToDo
-            key={todo.id} // will be unique forever
-            todo={todo}
-            handleToggle={handleToggle}
-            handleFilter={handleFilter}
-            handleFiltered={handleFiltered}
-            handleAllFiltered={handleAllFiltered}
-          />
+          <>
+            <ToDo
+              key={todo.id} // will be unique forever
+              todo={todo}
+              handleToggle={handleToggle}
+              handleFilter={handleFilter}
+              handleFiltered={handleFiltered}
+              handleAllFiltered={handleAllFiltered}
+            />
+            <Delete
+              id={todo.id}
+              setToDoList={setToDoList}
+              toDoList={toDoList}
+            />
+          </>
         );
       })}
       <button className="btnToDo btnClear" onClick={handleFilter}>

@@ -1,11 +1,11 @@
-// const Delete = (props) => {
-//   // delete function
+const Delete = ({ setToDoList, toDoList, id }) => {
+  // delete function
 
-//   const handleDelete = (id) => {
-//     props.setToDoList(props.toDoList.filter((item) => item.id !== id));
-//   };
+  const handleDelete = (taskId) => {
+    setToDoList(toDoList.filter((item) => item.id !== taskId));
+  };
 
-//   return <button onClick={() => handleDelete(props.id)}>x</button>;
-// };
+  return <button onClick={() => handleDelete(id)}>x</button>;
+};
 
-// export default Delete;
+export default Delete;

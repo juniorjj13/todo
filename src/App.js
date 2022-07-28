@@ -1,6 +1,6 @@
 import "./App.css";
 import data from "./data.json";
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // components
@@ -91,6 +91,7 @@ function App() {
         handleFilter={handleFilter}
         handleFiltered={handleFiltered}
         handleAllFiltered={handleAllFiltered}
+        setToDoList={setToDoList}
       />
       <ToDoForm addTask={addTask} />
     </div>
