@@ -1,13 +1,16 @@
-import "./App.css";
-import data from "./data.json";
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, createContext } from "react";
 import { v4 as uuidv4 } from "uuid";
+import data from "./data.json";
+import "./App.css";
 
 // components
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import ToDoForm from "./components/ToDoForm";
 import Pomodoro from "./components/Pomodoro";
+
+// context
+export const TodoContext = createContext();
 
 function App() {
   const [toDoList, setToDoList] = useState(data);
@@ -76,24 +79,26 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <div className="container">
-        {/* <Card /> */}
-        <p className="createdTasks">Created tasks: {treatedToDos.length}</p>
-        <p>
-          Done tasks {completedToDos.length} of {toDoList.length}
-        </p>
-      </div>
-      <Pomodoro />
-      <ToDoList
-        toDoList={treatedToDos}
-        handleToggle={handleToggle}
-        handleFilter={handleFilter}
-        handleFiltered={handleFiltered}
-        handleAllFiltered={handleAllFiltered}
-        setToDoList={setToDoList}
-      />
-      <ToDoForm addTask={addTask} />
+      <TodoContext.Provider value={{ toDoList, setToDoList }}>
+        <Header />
+        <div className="container">
+          {/* <Card /> */}
+          <p className="createdTasks">Created tasks: {treatedToDos.length}</p>
+          <p>
+            Done tasks {completedToDos.length} of {toDoList.length}
+          </p>
+        </div>
+        <Pomodoro />
+        <ToDoList
+          toDoList={treatedToDos}
+          handleToggle={handleToggle}
+          handleFilter={handleFilter}
+          handleFiltered={handleFiltered}
+          handleAllFiltered={handleAllFiltered}
+          setToDoList={setToDoList}
+        />
+        <ToDoForm addTask={addTask} />
+      </TodoContext.Provider>
     </div>
   );
 }

@@ -8,7 +8,6 @@ const ToDoList = ({
   handleFilter,
   handleFiltered,
   handleAllFiltered,
-  setToDoList,
 }) => {
   return (
     <div>
@@ -23,11 +22,7 @@ const ToDoList = ({
               handleFiltered={handleFiltered}
               handleAllFiltered={handleAllFiltered}
             />
-            <Delete
-              id={todo.id}
-              setToDoList={setToDoList}
-              toDoList={toDoList}
-            />
+            <Delete id={todo.id} />
           </>
         );
       })}

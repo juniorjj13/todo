@@ -1,5 +1,9 @@
-const Delete = ({ setToDoList, toDoList, id }) => {
+import { useContext } from "react";
+import { TodoContext } from "../App";
+
+const Delete = ({ id }) => {
   // delete function
+  const { toDoList, setToDoList } = useContext(TodoContext);
 
   const handleDelete = (taskId) => {
     setToDoList(toDoList.filter((item) => item.id !== taskId));
