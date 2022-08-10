@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useContext } from "react";
+import React from "react";
 
 // import data from "./data.json";
 import "./App.css";
@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import ToDoForm from "./components/ToDoForm";
 import Pomodoro from "./components/Pomodoro";
+import Overview from "./components/Overview";
 
 // context
 
@@ -18,14 +19,7 @@ function App() {
     <div className="App">
       <TodoContextProvider>
         <Header />
-        {/* <Card /> */} // To Do Junior : turn the below into a new component
-        and get data from context
-        {/* <div className="container">
-          <p className="createdTasks">Created tasks: {treatedToDos.length}</p>
-          <p>
-            Done tasks {completedToDos.length} of {toDoList.length}
-          </p>
-        </div> */}
+        <Overview />
         <Pomodoro />
         <ToDoList />
         <ToDoForm />

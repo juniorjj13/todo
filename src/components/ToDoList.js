@@ -1,4 +1,4 @@
-import React, { useState, useContext, useMemo } from "react";
+import { useState, useContext, useMemo } from "react";
 
 import ToDo from "./ToDo";
 import Delete from "./Delete";
@@ -7,6 +7,7 @@ import { TodoContext } from "../context/TodoContext";
 const ToDoList = () => {
   const { toDoList, setToDoList } = useContext(TodoContext);
   const [view, setView] = useState("all");
+
   const handleToggle = (id) => {
     let mapped = toDoList.map((task) => ({
       ...task,
@@ -77,6 +78,7 @@ const ToDoList = () => {
           </>
         );
       })}
+      <br />
       <button className="btnToDo btnClear" onClick={handleFilter}>
         Clear Completed
       </button>
