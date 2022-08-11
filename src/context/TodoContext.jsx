@@ -6,13 +6,22 @@ export const TodoContext = createContext();
 
 const TodoContextProvider = ({children}) => {
 
-    const [toDoList, setToDoList] = useState(data);
+    const [toDoList, setToDoList ] = useState(data);
    
-    console.log( 'hey here', toDoList)
+    const [treatedToDos] = useState(toDoList);
+    
+
+    console.log("hi", treatedToDos);
+
+    const [completedToDos] = useState(toDoList);
+    
+
+    console.log("Dale", completedToDos);
+
 
 
     return(
-    <TodoContext.Provider  value={{ toDoList, setToDoList }}>
+    <TodoContext.Provider  value={{ toDoList, setToDoList, treatedToDos, completedToDos}}>
         {children}
     </TodoContext.Provider>
     )

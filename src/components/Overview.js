@@ -2,7 +2,10 @@ import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
 
 const Overview = () => {
-  const { toDoList } = useContext(TodoContext);
+  const { toDoList, setToDoList } = useContext(TodoContext);
+
+  const { treatedToDos } = useContext(TodoContext);
+  const { completedToDos } = useContext(TodoContext);
 
   return (
     <div className="container">
