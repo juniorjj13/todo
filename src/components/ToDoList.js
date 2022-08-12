@@ -1,4 +1,4 @@
-import { useState, useContext, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { treat } from "../util/treat";
 import ToDo from "./ToDo";
 import Delete from "./Delete";
@@ -14,19 +14,6 @@ const ToDoList = () => {
     }));
     setToDoList(mapped);
   };
-
-  const notCompletedToDos = useMemo(
-    () =>
-      toDoList.filter((task) => {
-        return !task.complete;
-      }),
-    [toDoList]
-  );
-
-  const completedToDos = useMemo(
-    () => getCompletedStatus(toDoList),
-    [toDoList]
-  );
 
   const treatedToDos = useMemo(
     () =>

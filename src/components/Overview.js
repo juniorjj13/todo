@@ -4,7 +4,7 @@ import { getCompletedStatus } from "../util/getCompletedStatus";
 import { treat } from "../util/treat";
 
 const Overview = () => {
-  const { toDoList, setToDoList, view, setView } = useContext(TodoContext);
+  const { toDoList, view } = useContext(TodoContext);
 
   return (
     <div className="container">
