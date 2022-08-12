@@ -1,12 +1,11 @@
 import { useState, useContext, useMemo } from "react";
-
+import { treat } from "../util/treat";
 import ToDo from "./ToDo";
 import Delete from "./Delete";
 import { TodoContext } from "../context/TodoContext";
-
+import { getCompletedStatus } from "../util/getCompletedStatus";
 const ToDoList = () => {
-  const { toDoList, setToDoList } = useContext(TodoContext);
-  const [view, setView] = useState("all");
+  const { toDoList, setToDoList, view, setView } = useContext(TodoContext);
 
   const handleToggle = (id) => {
     let mapped = toDoList.map((task) => ({
@@ -25,27 +24,20 @@ const ToDoList = () => {
   );
 
   const completedToDos = useMemo(
-    () =>
-      toDoList.filter((task) => {
-        return task.complete;
-      }),
+    () => getCompletedStatus(toDoList),
     [toDoList]
   );
 
-  const treatedToDos = useMemo(() => {
-    let list = [];
-    switch (view) {
-      case "completed":
-        list = completedToDos;
-        break;
-      case "incomplete":
-        list = notCompletedToDos;
-        break;
-      default:
-        list = toDoList;
-    }
-    return list;
-  }, [toDoList, view, completedToDos, notCompletedToDos]);
+  const treatedToDos = useMemo(
+    () =>
+      treat(
+        view,
+        getCompletedStatus(toDoList, "complete"),
+        getCompletedStatus(toDoList, "incomplete"),
+        toDoList
+      ),
+    [toDoList, view]
+  );
   // useMemo -> retorna variaveis
   // useCallback -> retorna funcoes
 

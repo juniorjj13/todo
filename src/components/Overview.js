@@ -1,17 +1,27 @@
 import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
+import { getCompletedStatus } from "../util/getCompletedStatus";
+import { treat } from "../util/treat";
 
 const Overview = () => {
-  const { toDoList, setToDoList } = useContext(TodoContext);
-
-  const { treatedToDos } = useContext(TodoContext);
-  const { completedToDos } = useContext(TodoContext);
+  const { toDoList, setToDoList, view, setView } = useContext(TodoContext);
 
   return (
     <div className="container">
-      <p className="createdTasks">Created tasks: {treatedToDos.length}</p>
+      <p className="createdTasks">
+        Created tasks:{" "}
+        {
+          treat(
+            view,
+            getCompletedStatus(toDoList, "complete"),
+            getCompletedStatus(toDoList, "incomplete"),
+            toDoList
+          ).length
+        }
+      </p>
       <p>
-        Done tasks {completedToDos.length} of {toDoList.length}
+        Done tasks {getCompletedStatus(toDoList, "complete").length} of{" "}
+        {toDoList.length}
       </p>
     </div>
   );
