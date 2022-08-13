@@ -11,7 +11,6 @@ import Pomodoro from "./components/Pomodoro";
 import Overview from "./components/Overview";
 
 // context
-
 import TodoContextProvider from "./context/TodoContext";
 
 function App() {

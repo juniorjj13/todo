@@ -1,11 +1,12 @@
-import { useContext, useMemo } from "react";
-import { treat } from "../util/treat";
+import { useState, useContext, useMemo } from "react";
+
 import ToDo from "./ToDo";
 import Delete from "./Delete";
 import { TodoContext } from "../context/TodoContext";
-import { getCompletedStatus } from "../util/getCompletedStatus";
+
 const ToDoList = () => {
-  const { toDoList, setToDoList, view, setView } = useContext(TodoContext);
+  const { toDoList, setToDoList } = useContext(TodoContext);
+  const [view, setView] = useState("all");
 
   const handleToggle = (id) => {
     let mapped = toDoList.map((task) => ({
@@ -15,16 +16,36 @@ const ToDoList = () => {
     setToDoList(mapped);
   };
 
-  const treatedToDos = useMemo(
+  const notCompletedToDos = useMemo(
     () =>
-      treat(
-        view,
-        getCompletedStatus(toDoList, "complete"),
-        getCompletedStatus(toDoList, "incomplete"),
-        toDoList
-      ),
-    [toDoList, view]
+      toDoList.filter((task) => {
+        return !task.complete;
+      }),
+    [toDoList]
   );
+
+  const completedToDos = useMemo(
+    () =>
+      toDoList.filter((task) => {
+        return task.complete;
+      }),
+    [toDoList]
+  );
+
+  const treatedToDos = useMemo(() => {
+    let list = [];
+    switch (view) {
+      case "completed":
+        list = completedToDos;
+        break;
+      case "incomplete":
+        list = notCompletedToDos;
+        break;
+      default:
+        list = toDoList;
+    }
+    return list;
+  }, [toDoList, view, completedToDos, notCompletedToDos]);
   // useMemo -> retorna variaveis
   // useCallback -> retorna funcoes
 
