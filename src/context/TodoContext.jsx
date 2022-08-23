@@ -7,7 +7,7 @@ const TodoContextProvider = ({children}) => {
     const [view, setView] = useState("all");
     
     useEffect(() => {
-        fetch('http://localhost:3001')
+        fetch('http://localhost:3002')
         .then((response) => response.json())
         .then((data) => setToDoList(data));
     },[]);
