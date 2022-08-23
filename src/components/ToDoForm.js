@@ -7,42 +7,22 @@ const ToDoForm = () => {
 
   const { toDoList, setToDoList } = useContext(TodoContext);
 
-  // const handleChange = (e) => {
-  //   setUserInput(e.currentTarget.value);
-  // };
-
-  // const addTask = (userInput) => {
-  //   const copy = [
-  //     ...toDoList,
-  //     { id: uuidv4(), task: userInput, complete: false },
-  //   ];
-  //   setToDoList(copy);
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   addTask(userInput);
-  //   setUserInput("");
-  // };
-
-  //
-
   const handleSubmit = (e) => {
     e.preventDefault();
+
     let task = {
-      ...toDoList,
-      task: userInput.task,
       id: uuidv4(),
+      task: userInput.task,
       complete: userInput.complete,
     };
-
+    console.log(task);
     fetch("http://localhost:3002/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(task),
     }).then((response) => response.json().then((data) => setToDoList(data)));
 
-    setUserInput({ task: "", complete: "" });
+    setUserInput({ task: "", complete: false });
   };
 
   return (
@@ -50,7 +30,6 @@ const ToDoForm = () => {
       <input
         value={userInput.task}
         type="text"
-        //onChange={handleChange}
         onChange={(event) =>
           setUserInput({ ...userInput, task: event.target.value })
         }
