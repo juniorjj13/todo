@@ -5,18 +5,12 @@ const Delete = ({ id }) => {
   // delete function
   const { toDoList, setToDoList } = useContext(TodoContext);
 
-  // useEffect(() => {
-  //   // DELETE request using fetch inside useEffect React hook
-
-  //   // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  // }, []);
-
   const handleDelete = (taskId) => {
-    //setToDoList(toDoList.filter((item) => item.id !== taskId));
-    fetch("http://localhost:3003/delete/id", { method: "DELETE" }).then(() =>
-      //setToDoList("Delete successful")
-      setToDoList(toDoList.filter((item) => item.id !== taskId))
-    );
+    fetch(`http://localhost:3003/delete`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ taskId }),
+    }).then((response) => response.json().then((data) => setToDoList(data)));
   };
 
   return <button onClick={() => handleDelete(id)}>x</button>;
