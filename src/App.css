@@ -91,8 +91,18 @@ body {
   margin-bottom: 0.5em;
 }
 
+.timer {
+  margin-bottom: 50px;
+}
+
 /* Header Component */
 header {
   font-family: "Bungee Shade", cursive;
   font-size: 40px;
+}
+
+/* TodoForm Component */
+
+form {
+  margin: 50px 0 200px 0;
 }
