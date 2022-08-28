@@ -9,17 +9,13 @@ body {
   color: darkblue;
 }
 
+/* Overview Component */
 .container {
   display: flex;
   justify-content: center;
+  font-weight: 700;
+  background-color: rgb(244, 249, 248);
 }
-
-/* .card {
-  display: flex;
-  justify-content: space-between;
-  border: solid 1px;
-  width: 50%;
-} */
 
 .text {
   width: 10;
@@ -30,7 +26,6 @@ body {
 }
 
 /* tasks buttons todo */
-
 .todo {
   display: block;
   margin: 5px auto;
@@ -47,9 +42,8 @@ body {
 }
 
 /* buttons  */
-
 .btnToDo {
-  margin: 20px;
+  margin: 40px;
 }
 
 .btnClear,
@@ -80,7 +74,6 @@ body {
 }
 
 /* pomodoro timer */
-
 .pomodoro {
   font-size: 6em;
 }
@@ -102,7 +95,6 @@ header {
 }
 
 /* TodoForm Component */
-
 form {
   margin: 50px 0 200px 0;
 }

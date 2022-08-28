@@ -20,7 +20,7 @@ const Overview = () => {
         }
       </p>
       <p>
-        Done tasks {getCompletedStatus(toDoList, "complete").length} of{" "}
+        Done tasks: {getCompletedStatus(toDoList, "complete").length} of{" "}
         {toDoList.length}
       </p>
     </div>
