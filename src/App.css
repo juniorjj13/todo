@@ -3,7 +3,6 @@ body {
   justify-content: center;
   /* background-color: rgba(67, 105, 115, 0.519); */
   background-color: rgba(132, 220, 244, 0.519);
-
 }
 
 .title {
@@ -11,7 +10,7 @@ body {
 }
 
 .container {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
@@ -35,12 +34,12 @@ body {
 .todo {
   display: block;
   margin: 5px auto;
-  background: rgba( 205, 225, 234, 0.2 );
+  background: rgba(205, 225, 234, 0.2);
   box-shadow: 0 8px 32px 0 rgba(131, 132, 145, 0.37);
-  backdrop-filter: blur( 20px );
-  -webkit-backdrop-filter: blur( 20px );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .todo.strike {
@@ -56,39 +55,44 @@ body {
 .btnClear,
 .btnCompleted,
 .btnAll {
-    border: none;
-    background: #404040;
-    color: #ffffff;
-    font-weight: 100;
-    padding: 20px;
-    text-transform: uppercase;
-    border-radius: 6px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease 0s;
-  }
-  
+  border: none;
+  background: #404040;
+  color: #ffffff;
+  font-weight: 100;
+  padding: 20px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
 .btnClear:hover,
 .btnCompleted:hover,
 .btnAll:hover {
-    color: #404040;
-    font-weight: 700;
-    letter-spacing: 3px;
-    background: none;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.3s ease 0s;
-  }
+  color: #404040;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
+}
 
-  /* pomodoro timer */
+/* pomodoro timer */
 
-  .pomodoro {
-    font-size: 6em;
-  }
-  
-  .message {
-    font-size: 0.5em;
-    min-height: 1.3em;
-    margin-bottom: 0.5em;
-  }
-  
+.pomodoro {
+  font-size: 6em;
+}
+
+.message {
+  font-size: 0.5em;
+  min-height: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+/* Header Component */
+header {
+  font-family: "Ultra", serif;
+  font-size: 40px;
+}
