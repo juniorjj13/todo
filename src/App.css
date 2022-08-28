@@ -50,7 +50,7 @@ body {
 .btnCompleted,
 .btnAll {
   border: none;
-  background: #404040;
+  background: #080808;
   color: #ffffff;
   font-weight: 100;
   padding: 20px;
@@ -59,12 +59,13 @@ body {
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease 0s;
+  letter-spacing: 1px;
 }
 
 .btnClear:hover,
 .btnCompleted:hover,
 .btnAll:hover {
-  color: #404040;
+  color: #1b1919;
   font-weight: 700;
   letter-spacing: 3px;
   background: none;
