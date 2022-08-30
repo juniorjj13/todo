@@ -62,10 +62,10 @@ const ToDoList = () => {
   };
 
   return (
-    <div>
+    <div className="todosContainer">
       {treatedToDos.map((todo) => {
         return (
-          <>
+          <div className="ListTodosBtns">
             <ToDo
               key={todo.id} // will be unique forever
               todo={todo}
@@ -75,7 +75,7 @@ const ToDoList = () => {
               handleAllFiltered={handleAllFiltered}
             />
             <Delete id={todo.id} />
-          </>
+          </div>
         );
       })}
       <br />
