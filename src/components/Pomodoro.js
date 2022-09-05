@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+/* Setting the state of the timer. Start btn to star the countdown. */
 export default function Pomodoro() {
   const [isActive, setIsActive] = useState(false);
   const [minutes, setMinutes] = useState(25);
@@ -7,7 +8,6 @@ export default function Pomodoro() {
   const [displayMessage, setDisplayMessage] = useState(false);
 
   useEffect(() => {
-    // let interval = null;
     if (isActive) {
       let interval = setInterval(() => {
         clearInterval(interval);
