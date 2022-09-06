@@ -1,8 +1,18 @@
+/* Color scheme
+   1. #FEFEFD - off white
+   2. #E4E2CF - beige
+   3. #9B9F85 - pastel green
+   4. #3A3B3D - shade of grey
+   5. #1C2321 - dark green
+
+*/
+
 body {
   text-align: center;
   justify-content: center;
   /* background-color: rgba(67, 105, 115, 0.519); */
-  background-color: rgba(132, 220, 244, 0.519);
+  /* background-color: rgba(132, 220, 244, 0.519); */
+  background-color: #9b9f85;
   margin: 0 400px 0 400px;
 }
 
@@ -39,8 +49,8 @@ body {
 
 .todosContainer {
   align-items: center;
-  background: rgba(46, 43, 43, 0.35);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: #e4e2cf;
+  box-shadow: 0 8px 32px 0 rgba(74, 74, 76, 0.37);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
@@ -60,7 +70,7 @@ body {
 }
 
 .todo.strike {
-  text-decoration: line-through;
+  text-decoration: line-through #1c2321;
 }
 
 /* buttons  */
@@ -126,7 +136,7 @@ body {
 .btnCompleted,
 .btnAll {
   border: none;
-  background: #080808;
+  background: #1c2321;
   color: #ffffff;
   font-weight: 100;
   padding: 20px;
@@ -141,7 +151,7 @@ body {
 .btnClear:hover,
 .btnCompleted:hover,
 .btnAll:hover {
-  color: #1b1919;
+  color: #1c2321;
   font-weight: 700;
   letter-spacing: 3px;
   background: none;
@@ -153,6 +163,7 @@ body {
 /* pomodoro timer */
 .pomodoro {
   font-size: 6em;
+  color: #1c2321;
 }
 
 .message {
@@ -169,6 +180,7 @@ body {
 header {
   font-family: "Bungee Shade", cursive;
   font-size: 40px;
+  color: #e4e2cf;
 }
 
 /* TodoForm Component */
