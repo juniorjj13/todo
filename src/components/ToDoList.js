@@ -62,33 +62,36 @@ const ToDoList = () => {
   };
 
   return (
-    <div className="todosContainer">
-      {treatedToDos.map((todo) => {
-        return (
-          <div className="ListTodosBtns">
-            <ToDo
-              key={todo.id} // will be unique forever
-              todo={todo}
-              handleToggle={handleToggle}
-              handleFilter={handleFilter}
-              handleFiltered={handleFiltered}
-              handleAllFiltered={handleAllFiltered}
-            />
-            <Delete id={todo.id} />
-          </div>
-        );
-      })}
-      <br />
-      <button className="btnToDo btnClear" onClick={handleFilter}>
-        Clear
-      </button>
-      <button className="btnToDo btnCompleted" onClick={handleFiltered}>
-        Completed
-      </button>
-      <button className="btnToDo btnAll" onClick={handleAllFiltered}>
-        All
-      </button>
-    </div>
+    <>
+      <div className="todosContainer">
+        {treatedToDos.map((todo) => {
+          return (
+            <div className="ListTodosBtns">
+              <ToDo
+                key={todo.id} // will be unique forever
+                todo={todo}
+                handleToggle={handleToggle}
+                handleFilter={handleFilter}
+                handleFiltered={handleFiltered}
+                handleAllFiltered={handleAllFiltered}
+              />
+              <Delete id={todo.id} />
+            </div>
+          );
+        })}
+      </div>
+      <div>
+        <button className="btnToDo btnClear" onClick={handleFilter}>
+          Clear
+        </button>
+        <button className="btnToDo btnCompleted" onClick={handleFiltered}>
+          Completed
+        </button>
+        <button className="btnToDo btnAll" onClick={handleAllFiltered}>
+          All
+        </button>
+      </div>
+    </>
   );
 };
 
