@@ -28,14 +28,15 @@ const ToDoForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        className="formInput"
         value={userInput.task}
         type="text"
         onChange={(event) =>
           setUserInput({ ...userInput, task: event.target.value })
         }
-        placeholder="Enter task..."
+        placeholder="Your new task..."
       />
-      <button>Submit</button>
+      <button className="formBtn btnAll">Submit</button>
     </form>
   );
 };

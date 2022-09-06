@@ -14,6 +14,7 @@ body {
   /* background-color: rgba(132, 220, 244, 0.519); */
   background-color: #9b9f85;
   margin: 0 400px 0 400px;
+  font-family: "Lato", sans-serif;
 }
 
 .title {
@@ -34,6 +35,31 @@ body {
 
 .createdTasks {
   margin-right: 50px;
+}
+
+/* TodoForm Component */
+form {
+  display: flex;
+  justify-content: center;
+}
+.formInput {
+  margin-right: 20px;
+  background-color: #9b9f85;
+  border: none;
+  border-bottom: #1c2321 1px solid;
+  outline: none;
+  /* color: #fff; */
+  font-size: 14px;
+}
+
+.formBtn {
+  background-color: #3a3b3d !important;
+  transition-duration: 0, 4s;
+}
+
+.formBtn:hover {
+  background-color: #e4e2cf;
+  color: #e4e2cf;
 }
 
 /* TodoList Component */
