@@ -82,7 +82,7 @@ form {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  width: 500px;
+  /* width: 500px; */
 }
 
 /* tasks buttons todo */
