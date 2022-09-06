@@ -80,13 +80,13 @@ const ToDoList = () => {
       })}
       <br />
       <button className="btnToDo btnClear" onClick={handleFilter}>
-        Clear Completed
+        Clear
       </button>
       <button className="btnToDo btnCompleted" onClick={handleFiltered}>
-        Display completed tasks
+        Completed
       </button>
       <button className="btnToDo btnAll" onClick={handleAllFiltered}>
-        Display All tasks
+        All
       </button>
     </div>
   );
