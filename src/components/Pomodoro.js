@@ -28,6 +28,8 @@ export default function Pomodoro() {
           setSeconds(seconds - 1);
         }
       }, 1000);
+    } else {
+      return;
     }
   }, [minutes, seconds, displayMessage, isActive]);
 
@@ -44,14 +46,21 @@ export default function Pomodoro() {
       </div>
       <div className="timer">
         {timerMinutes}:{timerSeconds}
+        <button
+          type="button"
+          className="btnAll"
+          onClick={() => setIsActive(true)}
+        >
+          Start
+        </button>
+        <button
+          type="button"
+          className="btnAll"
+          onClick={() => setIsActive(false)}
+        >
+          Stop
+        </button>
       </div>
-      <button
-        type="button"
-        className="btnAll"
-        onClick={() => setIsActive(true)}
-      >
-        Start
-      </button>
     </div>
   );
 }
