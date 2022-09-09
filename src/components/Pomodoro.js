@@ -47,21 +47,21 @@ export default function Pomodoro() {
       <div className="timer">
         {timerMinutes}:{timerSeconds}
         {/* <br /> */}
-        <button
-          type="button"
-          className="btnAll btnStart"
-          onClick={() => setIsActive(true)}
-        >
-          Start
-        </button>
-        <button
-          type="button"
-          className="btnAll"
-          onClick={() => setIsActive(false)}
-        >
-          Stop
-        </button>
       </div>
+      <button
+        type="button"
+        className="btnAll btnStart"
+        onClick={() => setIsActive(true)}
+      >
+        Start
+      </button>
+      <button
+        type="button"
+        className="btnAll"
+        onClick={() => setIsActive(false)}
+      >
+        Stop
+      </button>
     </div>
   );
 }

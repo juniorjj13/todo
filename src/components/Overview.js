@@ -19,7 +19,7 @@ const Overview = () => {
           ).length
         }
       </p>
-      <p>
+      <p className="completedTasks">
         Done tasks: {getCompletedStatus(toDoList, "complete").length} of{" "}
         {toDoList.length}
       </p>

@@ -25,7 +25,9 @@ body {
   display: flex;
   justify-content: center;
   font-weight: 700;
-  /* background-color: rgb(244, 249, 248); */
+  background-color: #fefefd;
+  border-radius: 2em;
+  margin-bottom: 4em;
 }
 
 .text {
@@ -83,7 +85,7 @@ form {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  /* width: 500px; */
+  margin-bottom: 6em;
 }
 
 /* tasks buttons todo */
@@ -197,16 +199,12 @@ form {
 .pomodoro {
   font-size: 6em;
   color: #1c2321;
-}
-
-.message {
-  font-size: 0.5em;
-  min-height: 1.3em;
-  margin-bottom: 0.5em;
+  margin: 0.3em 0 0.1em 0;
 }
 
 .timer {
-  margin-bottom: 50px;
+  line-height: 34px;
+  height: 20px;
 }
 
 /* Header Component */
