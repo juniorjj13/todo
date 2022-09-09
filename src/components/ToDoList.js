@@ -64,6 +64,17 @@ const ToDoList = () => {
   return (
     <>
       <div className="todosContainer">
+        <div>
+          <button className="btnToDo btnClear" onClick={handleFilter}>
+            Clear
+          </button>
+          <button className="btnToDo btnCompleted" onClick={handleFiltered}>
+            Completed
+          </button>
+          <button className="btnToDo btnAll" onClick={handleAllFiltered}>
+            All
+          </button>
+        </div>
         {treatedToDos.map((todo) => {
           return (
             <div className="ListTodosBtns">
@@ -79,17 +90,6 @@ const ToDoList = () => {
             </div>
           );
         })}
-      </div>
-      <div>
-        <button className="btnToDo btnClear" onClick={handleFilter}>
-          Clear
-        </button>
-        <button className="btnToDo btnCompleted" onClick={handleFiltered}>
-          Completed
-        </button>
-        <button className="btnToDo btnAll" onClick={handleAllFiltered}>
-          All
-        </button>
       </div>
     </>
   );

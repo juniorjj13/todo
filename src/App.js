@@ -20,8 +20,8 @@ function App() {
         <Header />
         <Overview />
         <Pomodoro />
-        <ToDoList />
         <ToDoForm />
+        <ToDoList />
       </TodoContextProvider>
     </div>
   );

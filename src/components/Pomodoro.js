@@ -38,17 +38,18 @@ export default function Pomodoro() {
 
   return (
     <div className="pomodoro">
-      <div className="message">
+      {/* <div className="message">
         {displayMessage && <div>Break time! New session starts in:</div>}
-        {/* <button type="button" className="btnAll">
+        {<button type="button" className="btnAll">
           Run
-        </button> */}
-      </div>
+        </button> }
+      </div> */}
       <div className="timer">
         {timerMinutes}:{timerSeconds}
+        {/* <br /> */}
         <button
           type="button"
-          className="btnAll"
+          className="btnAll btnStart"
           onClick={() => setIsActive(true)}
         >
           Start

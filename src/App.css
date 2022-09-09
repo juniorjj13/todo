@@ -40,7 +40,9 @@ body {
 form {
   display: flex;
   justify-content: center;
+  margin: 0 0 20px 0;
 }
+
 .formInput {
   margin-right: 20px;
   background-color: #9b9f85;
@@ -102,7 +104,7 @@ form {
 
 /* buttons  */
 .btnToDo {
-  margin: 40px;
+  margin: 6px;
 }
 
 .btn {
@@ -110,7 +112,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.5 em;
+  padding: 0.3 em;
   border: 0px solid transparent;
   background-color: rgba(100, 77, 237, 0.08);
   border-radius: 1.25em;
@@ -187,6 +189,10 @@ form {
   transition: all 0.3s ease 0s;
 }
 
+.btnStart {
+  margin-right: 4px;
+}
+
 /* pomodoro timer */
 .pomodoro {
   font-size: 6em;
@@ -208,9 +214,4 @@ header {
   font-family: "Bungee Shade", cursive;
   font-size: 40px;
   color: #e4e2cf;
-}
-
-/* TodoForm Component */
-form {
-  margin: 50px 0 200px 0;
 }
