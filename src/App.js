@@ -10,6 +10,8 @@ import ToDoForm from "./components/ToDoForm";
 import Pomodoro from "./components/Pomodoro";
 import Overview from "./components/Overview";
 
+import firebase from "./Firebase";
+console.log(firebase);
 // context
 import TodoContextProvider from "./context/TodoContext";
 
