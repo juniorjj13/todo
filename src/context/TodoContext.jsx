@@ -22,16 +22,7 @@ const TodoContextProvider = ({children}) => {
     useEffect(()=>{
         getTodos() 
     },[]);
-
-console.log(db.collection("todo"));
-    // useEffect(() => {
-    //     fetch('http://localhost:3003')
-    //     .then((response) => response.json())
-    //     .then((data) => setToDoList(data));
-    // },[]);
     
-    
-
     return(
     <TodoContext.Provider  value={{ toDoList, setToDoList, view, setView}}>
         {children}

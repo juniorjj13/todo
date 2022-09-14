@@ -6,9 +6,8 @@ import db from "../firebase";
 const TodoRef = db.collection("todo");
 
 const ToDoForm = () => {
-  const [userInput, setUserInput] = useState({ task: "", complete: false });
-
   const { toDoList, setToDoList } = useContext(TodoContext);
+  const [userInput, setUserInput] = useState({ task: "", complete: false });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,12 +30,6 @@ const ToDoForm = () => {
       .catch((error) => {
         console.error("Error adding document: ", error);
       });
-
-    // fetch("http://localhost:3003/add", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(task),
-    // }).then((response) => response.json().then((data) => setToDoList(data)));
 
     setUserInput({ task: "", complete: false });
   };
