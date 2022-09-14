@@ -1,16 +1,34 @@
+import db from '../firebase';
 import { useEffect } from "react";
 import { createContext ,useState } from "react";
 export const TodoContext = createContext();
+
+
+
 
 const TodoContextProvider = ({children}) => {
     const [toDoList, setToDoList ] = useState([]);
     const [view, setView] = useState("all");
     
-    useEffect(() => {
-        fetch('http://localhost:3003')
-        .then((response) => response.json())
-        .then((data) => setToDoList(data));
+    
+    const getTodos = async () =>  {
+
+        const snapshot = await db.collection("todo")
+        .orderBy("timestamp", "asc")
+        .get()
+        return setToDoList(snapshot.docs.map(doc => doc.data()));
+    }   
+
+    useEffect(()=>{
+        getTodos() 
     },[]);
+
+console.log(db.collection("todo"));
+    // useEffect(() => {
+    //     fetch('http://localhost:3003')
+    //     .then((response) => response.json())
+    //     .then((data) => setToDoList(data));
+    // },[]);
     
     
 
