@@ -9,6 +9,7 @@ const TodoRef = addDoc(collection(db, "todo"), {
   id: db.id,
   task: db.task,
 });
+console.log("Dale Todofor", TodoRef);
 
 const ToDoForm = () => {
   const { toDoList, setToDoList } = useContext(TodoContext);

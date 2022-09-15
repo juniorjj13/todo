@@ -1,5 +1,7 @@
 import {
   collection,
+  getDocs,
+  doc,
   onSnapshot,
   getFirestore,
   Firestore,
@@ -22,8 +24,21 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
-
+console.log("Vencedor", db);
 //Referencing the whole todo collection of todo, with the Method collection(db, and path of collection). In the case of a document it needs the document path.
 const todoCollectionRef = collection(db, "todo");
 console.log("Daleee", todoCollectionRef);
-export default { db, todoCollectionRef };
+
+getDocs(todoCollectionRef)
+  .then((snapshopt) => {
+    let todo = [];
+    snapshopt.docs.forEach((doc) => {
+      todo.push({ ...doc.data(), id: doc.id });
+    });
+    console.log("uno dos", todo);
+  })
+  .catch((err) => console.log(err));
+
+const todoDocumentRef = doc(db, "todo/todo");
+console.log("todo document ref", todoDocumentRef);
+export default { db, todoCollectionRef, todoDocumentRef };
