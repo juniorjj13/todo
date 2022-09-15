@@ -1,5 +1,9 @@
-// Import the functions you need from the SDKs you need
-import { doc, onSnapshot, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  getFirestore,
+  Firestore,
+} from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -17,6 +21,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-console.log("Daleee", db);
-export default db;
+const db = getFirestore();
+
+//Referencing the whole todo collection of todo, with the Method collection(db, and path of collection). In the case of a document it needs the document path.
+const todoCollectionRef = collection(db, "todo");
+console.log("Daleee", todoCollectionRef);
+export default { db, todoCollectionRef };
