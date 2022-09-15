@@ -1,15 +1,5 @@
-import {
-  collection,
-  getDocs,
-  doc,
-  onSnapshot,
-  getFirestore,
-  Firestore,
-} from "firebase/firestore";
+import { collection, getDocs, doc, getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,10 +14,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
-console.log("Vencedor", db);
+
 //Referencing the whole todo collection of todo, with the Method collection(db, and path of collection). In the case of a document it needs the document path.
 const todoCollectionRef = collection(db, "todo");
-console.log("Daleee", todoCollectionRef);
 
 getDocs(todoCollectionRef)
   .then((snapshopt) => {
@@ -40,5 +29,5 @@ getDocs(todoCollectionRef)
   .catch((err) => console.log(err));
 
 const todoDocumentRef = doc(db, "todo/todo");
-console.log("todo document ref", todoDocumentRef);
+
 export default { db, todoCollectionRef, todoDocumentRef };

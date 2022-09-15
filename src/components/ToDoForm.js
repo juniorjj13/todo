@@ -4,12 +4,13 @@ import { v4 as uuidv4 } from "uuid";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
-// const TodoRef = db.collection("todo");
-const TodoRef = addDoc(collection(db, "todo"), {
-  id: db.id,
-  task: db.task,
-});
-console.log("Dale Todofor", TodoRef);
+// const TodoRef = addDoc(collection(db, "todo"), {
+//   id: db.id,
+//   task: db.task,
+// });
+// console.log("Dale Todoform", TodoRef);
+
+const todoCollectionRef = collection(db, "todo");
 
 const ToDoForm = () => {
   const { toDoList, setToDoList } = useContext(TodoContext);
@@ -25,7 +26,8 @@ const ToDoForm = () => {
       timestamp: Date.now(),
     };
 
-    TodoRef.add(task)
+    todoCollectionRef
+      .add(task)
       .then(async () => {
         const snapshot = await db
           .collection("todo")
