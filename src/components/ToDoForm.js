@@ -2,8 +2,13 @@ import React, { useState, useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
 import { v4 as uuidv4 } from "uuid";
 import db from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
-const TodoRef = db.collection("todo");
+// const TodoRef = db.collection("todo");
+const TodoRef = addDoc(collection(db, "todo"), {
+  id: db.id,
+  task: db.task,
+});
 
 const ToDoForm = () => {
   const { toDoList, setToDoList } = useContext(TodoContext);
