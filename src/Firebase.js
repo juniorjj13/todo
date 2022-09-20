@@ -15,18 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-//Referencing the whole todo collection of todo, with the Method collection(db, and path of collection). In the case of a document it needs the document path.
-// const todoDocumentRef = doc(db, "todo/todo");
-// const todoCollectionRef = collection(db, "todo");
-
-// getDocs(todoCollectionRef)
-//   .then((snapshopt) => {
-//     let todo = [];
-//     snapshopt.docs.forEach((doc) => {
-//       todo.push({ ...doc.data(), id: doc.id });
-//     });
-//     console.log("uno dos", todo);
-//   })
-//   .catch((err) => console.log(err));
-
 export default { db };
