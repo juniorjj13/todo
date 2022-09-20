@@ -9,7 +9,7 @@ export const TodoContext = createContext();
 
 // todo: get all the items from the collection "todo" in the TodoList 
 
-const TodoContextProvider = ({children}) => {
+const TodoContextProvider = ({children}) => { 
     const [toDoList, setToDoList ] = useState([]);
     const [view, setView] = useState("all");
 
