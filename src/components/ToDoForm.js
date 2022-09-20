@@ -18,7 +18,7 @@ const ToDoForm = () => {
       timestamp: Date.now(),
     };
 
-    collection(db, "todo")
+    collection(db, "todo/todo")
       .add(task)
       .then(async () => {
         const snapshot = await db
