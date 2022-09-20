@@ -25,8 +25,8 @@ const ToDoForm = () => {
       .then(async () => {
         const snapshot = await db
           .collection("todo")
-          .orderBy("timestamp", "desc")
-          .get();
+          .get()
+          .orderBy("timestamp", "desc");
         return setToDoList(snapshot.docs.map((doc) => doc.data()));
       })
       .catch((error) => {
