@@ -4,14 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
-// const TodoRef = addDoc(collection(db, "todo"), {
-//   id: db.id,
-//   task: db.task,
-// });
-// console.log("Dale Todoform", TodoRef);
-
-const todoCollectionRef = collection(db, "todo");
-
 const ToDoForm = () => {
   const { toDoList, setToDoList } = useContext(TodoContext);
   const [userInput, setUserInput] = useState({ task: "", complete: false });
@@ -26,7 +18,7 @@ const ToDoForm = () => {
       timestamp: Date.now(),
     };
 
-    todoCollectionRef
+    collection(db, "todo")
       .add(task)
       .then(async () => {
         const snapshot = await db
