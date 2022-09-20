@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
 import { v4 as uuidv4 } from "uuid";
+import db from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const ToDoForm = () => {
-  const [userInput, setUserInput] = useState({ task: "", complete: false });
-
   const { toDoList, setToDoList } = useContext(TodoContext);
+  const [userInput, setUserInput] = useState({ task: "", complete: false });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,13 +15,21 @@ const ToDoForm = () => {
       id: uuidv4(),
       task: userInput.task,
       complete: userInput.complete,
+      timestamp: Date.now(),
     };
-    console.log(task);
-    fetch("http://localhost:3003/add", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(task),
-    }).then((response) => response.json().then((data) => setToDoList(data)));
+
+    collection(db, "todo")
+      .add(task)
+      .then(async () => {
+        const snapshot = await db
+          .collection("todo")
+          .orderBy("timestamp", "desc")
+          .get();
+        return setToDoList(snapshot.docs.map((doc) => doc.data()));
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
 
     setUserInput({ task: "", complete: false });
   };
