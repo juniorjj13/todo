@@ -4,8 +4,10 @@ import "../App.css";
 
 const Delete = ({ id }) => {
   // delete function
+  //call delete function from context below
   const { toDoList, setToDoList } = useContext(TodoContext);
 
+  //add this logic to Context
   const handleDelete = (taskId) => {
     fetch(`http://localhost:3003/delete`, {
       method: "DELETE",
