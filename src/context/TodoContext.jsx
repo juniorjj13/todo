@@ -1,9 +1,6 @@
-import { db, todoCollectionRef } from "../firebase";
+import { todoCollectionRef } from "../firebase";
 import {
-  collection,
   getDocs,
-  doc,
-  getFirestore,
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
@@ -28,6 +25,7 @@ const TodoContextProvider = ({ children }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  //add task
   const addToDos = useCallback(
     async (task, complete) => {
       const todoDoc = {
@@ -43,6 +41,8 @@ const TodoContextProvider = ({ children }) => {
     },
     [toDoList]
   );
+
+  //delete
 
   useEffect(() => {
     getTodos();
