@@ -1,20 +1,20 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
 import "../App.css";
 
 const Delete = ({ id }) => {
   // delete function
   //call delete function from context below
-  const { toDoList, setToDoList } = useContext(TodoContext);
+  const { setToDoList, handleDelete } = useContext(TodoContext);
 
-  //add this logic to Context
-  const handleDelete = (taskId) => {
-    fetch(`http://localhost:3003/delete`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ taskId }),
-    }).then((response) => response.json().then((data) => setToDoList(data)));
-  };
+  handleDelete(id);
+  // const handleDelete = (taskId) => {
+  //   fetch(`http://localhost:3003/delete`, {
+  //     method: "DELETE",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ taskId }),
+  //   }).then((response) => response.json().then((data) => setToDoList(data)));
+  // };
 
   return (
     <button class="tooltip btn" onClick={() => handleDelete(id)}>

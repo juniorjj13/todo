@@ -1,8 +1,12 @@
-import { todoCollectionRef } from "../firebase";
+import { todoCollectionRef, todoDocRef } from "../firebase";
 import {
   getDocs,
+  doc,
+  query,
+  where,
   addDoc,
   serverTimestamp,
+  deleteDoc,
 } from "firebase/firestore";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -36,6 +40,7 @@ const TodoContextProvider = ({ children }) => {
       };
 
       const test = await addDoc(todoCollectionRef, todoDoc);
+
       //add new item to ToDoList
       setToDoList([...toDoList, { ...todoDoc, anotherid: test.id }]);
     },
@@ -43,6 +48,23 @@ const TodoContextProvider = ({ children }) => {
   );
 
   //delete
+  const q = query(todoCollectionRef, where("id", "==", "id"));
+
+  const handleDelete = useCallback(async (id) => {
+    const deleteTodo = await deleteDoc(q)
+      .then(() => {
+        console.log("Deleted!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    return;
+
+    // if (id === userInput.id) {
+    //   deleteTodo();
+    // }
+  });
 
   useEffect(() => {
     getTodos();
