@@ -5,6 +5,7 @@ import {
   doc,
   getFirestore,
   addDoc,
+  serverTimestamp,
 } from "firebase/firestore";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -33,7 +34,7 @@ const TodoContextProvider = ({ children }) => {
         id: uuidv4(),
         task: task,
         complete: complete,
-        timestamp: Date.now(),
+        timestamp: serverTimestamp(),
       };
 
       const test = await addDoc(todoCollectionRef, todoDoc);
