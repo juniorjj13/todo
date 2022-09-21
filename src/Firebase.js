@@ -14,5 +14,16 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const todoCollectionRef = collection(db, "todo");
+
+getDocs(todoCollectionRef)
+  .then((snapshopt) => {
+    let todo = [];
+    snapshopt.docs.forEach((doc) => {
+      todo.push({ ...doc.data(), id: doc.id });
+    });
+    console.log("uno dos", todo);
+  })
+  .catch((err) => console.log(err));
 
 export default { db };
