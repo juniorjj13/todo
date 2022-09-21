@@ -50,7 +50,7 @@ const TodoContextProvider = ({ children }) => {
   //delete
 
   const handleDelete = useCallback(async () => {
-    const q = query(todoCollectionRef, where("id", "==", "id"));
+    const q = query(todoCollectionRef, where("test.id", "==", "id"));
     const deleteTodo = await deleteDoc(q)
       .then(() => {
         console.log("Deleted!");
