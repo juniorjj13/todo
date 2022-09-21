@@ -48,9 +48,9 @@ const TodoContextProvider = ({ children }) => {
   );
 
   //delete
-  const q = query(todoCollectionRef, where("id", "==", "id"));
 
-  const handleDelete = useCallback(async (id) => {
+  const handleDelete = useCallback(async () => {
+    const q = query(todoCollectionRef, where("id", "==", "id"));
     const deleteTodo = await deleteDoc(q)
       .then(() => {
         console.log("Deleted!");
@@ -58,12 +58,6 @@ const TodoContextProvider = ({ children }) => {
       .catch((error) => {
         console.error(error);
       });
-
-    return;
-
-    // if (id === userInput.id) {
-    //   deleteTodo();
-    // }
   });
 
   useEffect(() => {
@@ -72,7 +66,7 @@ const TodoContextProvider = ({ children }) => {
 
   return (
     <TodoContext.Provider
-      value={{ toDoList, setToDoList, view, setView, addToDos }}
+      value={{ toDoList, setToDoList, view, setView, addToDos, handleDelete }}
     >
       {children}
     </TodoContext.Provider>
