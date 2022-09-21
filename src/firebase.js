@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, getFirestore } from "firebase/firestore";
+import { collection, getFirestore, doc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
@@ -17,5 +17,6 @@ const db = getFirestore(app);
 
 //Referencing the whole todo collection of todo, with the Method collection(db, and path of collection). In the case of a document it needs the document path.
 const todoCollectionRef = collection(db, "todo");
+const todoDocRef = doc(db, "todo/todo");
 
-export { db, todoCollectionRef };
+export { db, todoCollectionRef, todoDocRef };
