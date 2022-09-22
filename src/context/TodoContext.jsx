@@ -16,6 +16,7 @@ const TodoContextProvider = ({ children }) => {
   const [toDoList, setToDoList] = useState([]);
   const [view, setView] = useState("all");
 
+  // get data TodoList fron server aka. firestore
   const getTodos = useCallback(async () => {
     getDocs(todoCollectionRef)
       //.orderBy("serverTimestamp", "asc")
@@ -49,24 +50,25 @@ const TodoContextProvider = ({ children }) => {
 
   //delete
 
-  const handleDelete = useCallback(async () => {
-    //query to sort the items upon a speciific query
-    const q = query(todoCollectionRef, where("task", "==", "hello 3"));
+  // const handleDelete = useCallback(async (userId) => {
+  //   //query to sort the items upon a speciific query
+  //   const q = query(todoCollectionRef, where("id", "==", "userId"));
+  //   console.log(q);
+  //   //getting the full object that matches the query parameters
+  //   const querySnapshot = await getDocs(q);
+  //   querySnapshot.forEach((doc) => {
+  //     //doc.data() is never undefined for query doc snapshots
+  //     console.log("testando aqui", doc.id, " => ", doc.data());
+  //   });
 
-    //getting the full object that matches the query parameters
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      //doc.data() is never undefined for query doc snapshots
-      console.log("testando aqui", doc.id, " => ", doc.data());
-    });
-    // const deleteTodo = await deleteDoc(querySnapshot)
-    //   .then(() => {
-    //     console.log("Deleted!");
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-  }, []);
+  //   // const deleteTodo = await deleteDoc(querySnapshot)
+  //   //   .then(() => {
+  //   //     console.log("Deleted!");
+  //   //   })
+  //   //   .catch((error) => {
+  //   //     console.error(error);
+  //   //   });
+  // }, []);
 
   useEffect(() => {
     getTodos();
@@ -74,7 +76,13 @@ const TodoContextProvider = ({ children }) => {
 
   return (
     <TodoContext.Provider
-      value={{ toDoList, setToDoList, view, setView, addToDos, handleDelete }}
+      value={{
+        toDoList,
+        setToDoList,
+        view,
+        setView,
+        addToDos,
+      }}
     >
       {children}
     </TodoContext.Provider>

@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import { TodoContext } from "../context/TodoContext";
 import "../App.css";
+import { query, where, getDocs } from "firebase/firestore";
+import { todoCollectionRef } from "../firebase";
 
 const Delete = ({ id }) => {
   // delete function
   //call delete function from context below
-  const { setToDoList, handleDelete } = useContext(TodoContext);
+  const { setToDoList, userId } = useContext(TodoContext);
 
-  handleDelete(id);
+  // handleDelete(userId);
   // const handleDelete = (taskId) => {
   //   fetch(`http://localhost:3003/delete`, {
   //     method: "DELETE",
@@ -16,8 +18,20 @@ const Delete = ({ id }) => {
   //   }).then((response) => response.json().then((data) => setToDoList(data)));
   // };
 
+  const handleDelete = useCallback(async (e) => {
+    //query to sort the items upon a speciific query
+    const q = query(todoCollectionRef, where("id", "==", "e.id"));
+    console.log(q);
+    //getting the full object that matches the query parameters
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      //doc.data() is never undefined for query doc snapshots
+      console.log("testando aqui", doc.id, " => ", doc.data());
+    });
+  }, []);
+
   return (
-    <button className="tooltip btn" onClick={() => handleDelete(id)}>
+    <button className="tooltip btn" onClick={(e) => handleDelete(e.id)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
