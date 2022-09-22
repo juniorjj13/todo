@@ -1,7 +1,6 @@
 import { todoCollectionRef, todoDocRef } from "../firebase";
 import {
   getDocs,
-  doc,
   query,
   where,
   addDoc,
@@ -19,6 +18,7 @@ const TodoContextProvider = ({ children }) => {
 
   const getTodos = useCallback(async () => {
     getDocs(todoCollectionRef)
+      //.orderBy("serverTimestamp", "asc")
       .then((snapshopt) => {
         let todo = [];
         snapshopt.docs.forEach((doc) => {
@@ -39,10 +39,10 @@ const TodoContextProvider = ({ children }) => {
         timestamp: serverTimestamp(),
       };
 
-      const test = await addDoc(todoCollectionRef, todoDoc);
+      const addToDoColRef = await addDoc(todoCollectionRef, todoDoc);
 
       //add new item to ToDoList
-      setToDoList([...toDoList, { ...todoDoc, anotherid: test.id }]);
+      setToDoList([...toDoList, { ...todoDoc, anotherid: addToDoColRef.id }]);
     },
     [toDoList]
   );
@@ -50,15 +50,21 @@ const TodoContextProvider = ({ children }) => {
   //delete
 
   const handleDelete = useCallback(async () => {
-    const q = query(todoCollectionRef, where("test.id", "==", "id"));
-    const deleteTodo = await deleteDoc(q)
-      .then(() => {
-        console.log("Deleted!");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  });
+    const q = query(todoCollectionRef, where("task", "==", "hello 3" ));
+    console.log("delete here", q);
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      //doc.data() is never undefined for query doc snapshots
+      console.log("testando aqui", doc.id, " => ", doc.data());
+    });
+    // const deleteTodo = await deleteDoc(querySnapshot)
+    //   .then(() => {
+    //     console.log("Deleted!");
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
+  }, []);
 
   useEffect(() => {
     getTodos();
