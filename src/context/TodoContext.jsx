@@ -1,4 +1,4 @@
-import { todoCollectionRef, todoDocRef } from "../firebase";
+import { todoCollectionRef } from "../firebase";
 import {
   getDocs,
   query,
@@ -50,8 +50,10 @@ const TodoContextProvider = ({ children }) => {
   //delete
 
   const handleDelete = useCallback(async () => {
-    const q = query(todoCollectionRef, where("task", "==", "hello 3" ));
-    console.log("delete here", q);
+    //query to sort the items upon a speciific query
+    const q = query(todoCollectionRef, where("task", "==", "hello 3"));
+
+    //getting the full object that matches the query parameters
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       //doc.data() is never undefined for query doc snapshots
