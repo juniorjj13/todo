@@ -1,10 +1,11 @@
 import { useContext, useCallback } from "react";
 import { TodoContext } from "../context/TodoContext";
 import "../App.css";
-import { query, where, getDocs } from "firebase/firestore";
+import { query, where, getDocs, deleteDoc } from "firebase/firestore";
 import { todoCollectionRef } from "../firebase";
 
 const Delete = ({ id }) => {
+  console.log("brigadeiro", id);
   // delete function
   //call delete function from context below
   const { setToDoList, userId } = useContext(TodoContext);
@@ -18,9 +19,20 @@ const Delete = ({ id }) => {
   //   }).then((response) => response.json().then((data) => setToDoList(data)));
   // };
 
-  const handleDelete = useCallback(async (e) => {
+  // const handleDelete = useCallback(async (userId) => {
+  //   //query to sort the items upon a speciific query
+  //   const q = query(todoCollectionRef, where("id", "==", "id"));
+  //   //getting the full object that matches the query parameters
+  //   const querySnapshot = await getDocs(q);
+  //   querySnapshot.forEach((doc) => {
+  //     //doc.data() is never undefined for query doc snapshots
+  //     console.log("testando aqui", doc.id, " => ", doc.data());
+  //   });
+  // }, []);
+
+  const handleDelete = useCallback(async (id) => {
     //query to sort the items upon a speciific query
-    const q = query(todoCollectionRef, where("id", "==", "e.id"));
+    const q = query(todoCollectionRef, where("id", "==", "id"));
     console.log(q);
     //getting the full object that matches the query parameters
     const querySnapshot = await getDocs(q);
@@ -28,10 +40,18 @@ const Delete = ({ id }) => {
       //doc.data() is never undefined for query doc snapshots
       console.log("testando aqui", doc.id, " => ", doc.data());
     });
+
+    const deleteTodo = await deleteDoc(querySnapshot)
+      .then(() => {
+        console.log("Deleted!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   return (
-    <button className="tooltip btn" onClick={(e) => handleDelete(e.id)}>
+    <button className="tooltip btn" onClick={() => handleDelete(id)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
