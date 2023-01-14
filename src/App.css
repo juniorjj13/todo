@@ -16,17 +16,24 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   /* Extra large devices (large desktops, 1200px and up) */
+  body {
+    margin: 0 470px 0 470px;
+  }
 }
 @media only screen and (max-width: 1200px) {
   /*Tablets [601px -> 1200px]*/
+  body {
+    margin: 0 300px 0 300px;
+  }
 }
 @media only screen and (max-width: 600px) {
-  /*Big smartphones [426px -> 600px]*/
+  /*Big smartphones [426px -> 600px]* WORKING by default*/
 }
+
 @media only screen and (max-width: 425px) {
-  /*Small smartphones [325px -> 425px]*/
+  /*Small smartphones [325px -> 425px]* WORKING by default*/
 }
 
 .title {
