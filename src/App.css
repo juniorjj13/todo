@@ -16,6 +16,9 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+@media (min-width: 1200px) {
+  /* Extra large devices (large desktops, 1200px and up) */
+}
 @media only screen and (max-width: 1200px) {
   /*Tablets [601px -> 1200px]*/
 }
