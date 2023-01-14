@@ -12,8 +12,18 @@ body {
   /* background-color: rgba(67, 105, 115, 0.519); */
   /* background-color: rgba(132, 220, 244, 0.519); */
   background-color: #9b9f85;
-  margin: 0 500px 0 500px;
+  margin: 0 20px 0 20px;
   font-family: "Lato", sans-serif;
+}
+
+@media only screen and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+}
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
 }
 
 .title {
