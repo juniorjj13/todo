@@ -16,24 +16,62 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-@media only screen and (min-width: 1200px) {
+@media screen and (min-width: 1501px) {
   /* Extra large devices (large desktops, 1200px and up) */
   body {
     margin: 0 470px 0 470px;
   }
 }
-@media only screen and (max-width: 1200px) {
+
+@media screen and (max-width: 1500px) {
   /*Tablets [601px -> 1200px]*/
   body {
     margin: 0 300px 0 300px;
   }
 }
-@media only screen and (max-width: 600px) {
-  /*Big smartphones [426px -> 600px]* WORKING by default*/
+
+@media screen and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+  body {
+    margin: 0 300px 0 300px;
+  }
 }
 
-@media only screen and (max-width: 425px) {
-  /*Small smartphones [325px -> 425px]* WORKING by default*/
+@media screen and (max-width: 1000px) {
+  /*Tablets [601px -> 1200px]*/
+  body {
+    margin: 0 200px 0 200px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /*Tablets [601px -> 1200px]*/
+  body {
+    margin: 0 100px 0 100px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+  body {
+    margin: 0 40px 0 40px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
+  body {
+    margin: 0 20px 0 20px;
+  }
+  /* add space list */
+}
+
+@media screen and (max-width: 320px) {
+  /*Small smartphones [325px -> 425px]*/
+  body {
+    margin: 0 10px 0 10px;
+  }
+  /* add space list */
 }
 
 .title {
