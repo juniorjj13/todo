@@ -1,11 +1,11 @@
 import { todoCollectionRef } from "../firebase";
 import {
   getDocs,
-  query,
-  where,
+  //query,
+  //where,
   addDoc,
   serverTimestamp,
-  deleteDoc,
+  //deleteDoc,
 } from "firebase/firestore";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
