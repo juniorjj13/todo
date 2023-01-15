@@ -221,6 +221,17 @@ header {
 
 /* Footer Component */
 
+.footerContainer {
+  background-color: #3a3b3d;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  align-items: center;
+}
+
+.footerLinks {
+}
+
 /* Media queries */
 @media screen and (min-width: 1501px) {
   /* Extra large devices (large desktops, 1200px and up) */
