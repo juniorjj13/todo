@@ -1,14 +1,14 @@
-import { useContext, useCallback } from "react";
-import { TodoContext } from "../context/TodoContext";
+import { useCallback } from "react";
+//import { TodoContext } from "../context/TodoContext";
 import "../App.css";
-import { query, where, getDocs, deleteDoc } from "firebase/firestore";
+import { query, where, getDocs } from "firebase/firestore";
 import { todoCollectionRef } from "../firebase";
 
 const Delete = ({ id }) => {
   console.log("brigadeiro", id);
   // delete function
   //call delete function from context below
-  const { setToDoList, userId } = useContext(TodoContext);
+  //const { setToDoList, userId } = useContext(TodoContext);
 
   // handleDelete(userId);
   // const handleDelete = (taskId) => {
@@ -41,13 +41,13 @@ const Delete = ({ id }) => {
       console.log("testando aqui", doc.id, " => ", doc.data());
     });
 
-    const deleteTodo = await deleteDoc(querySnapshot)
-      .then(() => {
-        console.log("Deleted!");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // const deleteTodo = await deleteDoc(querySnapshot)
+    //   .then(() => {
+    //     console.log("Deleted!");
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
   }, []);
 
   return (
