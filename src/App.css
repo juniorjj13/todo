@@ -231,6 +231,11 @@ header {
   margin: 4px;
 }
 
+.footerLinks:hover {
+  font-weight: 600;
+  transition: all 0.1s ease 0s;
+}
+
 /* Media queries */
 @media screen and (min-width: 1501px) {
   /* Extra large devices (large desktops, 1200px and up) */
