@@ -57,14 +57,13 @@ a {
   font-size: 14px;
 }
 
-.formBtn {
-  background-color: #3a3b3d !important;
-  transition-duration: 0, 4s;
+.submitBtn {
+  border: none;
+  background: transparent;
 }
 
-.formBtn:hover {
-  background-color: #e4e2cf;
-  color: #e4e2cf;
+.material-symbols-outlined {
+  font-weight: 600;
 }
 
 /* TodoList Component */
