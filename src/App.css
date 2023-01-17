@@ -9,8 +9,6 @@
 body {
   text-align: center;
   justify-content: center;
-  /* background-color: rgba(67, 105, 115, 0.519); */
-  /* background-color: rgba(132, 220, 244, 0.519); */
   background-color: #9b9f85;
   margin: 0 20px 0 20px;
   font-family: "Lato", sans-serif;
@@ -56,7 +54,6 @@ form {
   border: none;
   border-bottom: #1c2321 1px solid;
   outline: none;
-  /* color: #fff; */
   font-size: 14px;
 }
 
