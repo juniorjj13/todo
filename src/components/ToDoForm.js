@@ -24,7 +24,9 @@ const ToDoForm = () => {
         }
         placeholder="Your new task..."
       />
-      <button className="formBtn btnAll">Submit</button>
+      <button type="submit" className="submitBtn">
+        <span className="material-symbols-outlined">add_task</span>
+      </button>
     </form>
   );
 };
