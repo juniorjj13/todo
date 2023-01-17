@@ -14,7 +14,7 @@ const ToDoForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="todoForm">
       <input
         className="formInput"
         value={userInput.task}
