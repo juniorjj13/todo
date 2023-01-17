@@ -50,14 +50,14 @@ export default function Pomodoro() {
       </div>
       <button
         type="button"
-        className="btnAll btnStart"
+        className="btnPomodoro btnStart"
         onClick={() => setIsActive(true)}
       >
         Start
       </button>
       <button
         type="button"
-        className="btnAll"
+        className="btnPomodoro"
         onClick={() => setIsActive(false)}
       >
         Stop
