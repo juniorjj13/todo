@@ -88,6 +88,7 @@ a {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   margin-bottom: 6em;
+  padding: 8px 0 8px 0;
 }
 
 /* tasks buttons todo */
